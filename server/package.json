@@ -1,0 +1,24 @@
+{
+  "name": "spl-language-server",
+  "description": "Implementation of a language server for Spl",
+  "version": "1.0.0",
+  "author": "codingkapoor",
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^4.1.2",
+    "parser": "file:../parser"
+  },
+  "devDependencies": {
+    "@types/node": "10.0.4",
+    "typescript": "2.8.3"
+  },
+  "scripts": {
+    "preinstall": "rm -rf node_module/parser",
+    "installServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json",
+    "compile": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
+    "watch": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc --watch -p ."
+  }
+}

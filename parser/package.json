@@ -1,0 +1,11 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "Antlr parser for Spl",
+  "main": "index.js",
+  "dependencies": {
+    "antlr4": "4.7.1"
+  },
+  "author": "codingkapoor",
+  "license": "MIT"
+}

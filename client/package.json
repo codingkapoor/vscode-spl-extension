@@ -25,7 +25,7 @@
     "snippets": [
       {
         "language": "spl",
-        "path": "./snippets/snippets.json"
+        "path": "./snippets/spl.json"
       }
     ],
     "configuration": {

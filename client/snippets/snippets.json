@@ -1,0 +1,147 @@
+{
+    "namespace": {
+        "prefix": "define.namespace",
+        "body": [
+            "DEFINE NAMESPACE ${1:namespace_name} DESCRIPTION '${2:namespace_description}' TYPE ${3:type}",
+            "\tBEGINS WITH /${4:beginswith_regex}/",
+            "\tFILEPATTERN /${5:file_pattern}/",
+            ";"
+        ],
+        "description": "Namespace Snippet"
+    },
+    "table": {
+        "prefix": "define.table",
+        "body": [
+            "DEFINE TABLE ${1:table_name} NAMESPACE ${2:namespace_name}",
+            "\tICON ${3|list_basic,aligned_basic,nvpair_basic,xml_basic,json|}",
+            "\tLINEGRAB /${4:line_grab}/\n",
+            "\tCOLUMN ${5:column_name} [${6:column_type}(${7:column_size}):${8|n,nn|}]  <label='${9:column_label}'>  AS ${10:column_order}\n",
+            "\tADD_CONTEXT(${11:comma_seperated_list_of_columns})",
+            ";"
+        ],
+        "description": "Table Snippet"
+    },
+    "column": {
+        "prefix": "column",
+        "body": [
+            "COLUMN ${1:column_name} [${2:column_type}(${3:column_size}):${4|n,nn|}]  <label='${5:column_label}'>  AS ${6:column_order}"
+        ],
+        "description": "Column Snippet"
+    },
+    "column-copy": {
+        "prefix": "column.copy",
+        "body": [
+            "COLCOPY(${1:source_column}, ${2:destination_column})"
+        ],
+        "description": "Column Copy Snippet"
+    },
+    "column-case": {
+        "prefix": "column.case",
+        "body": [
+            "COLCASE",
+            "\tCOLWHEN(${1:source_column>}, /${2:conditional_text_or_regex}/)",
+            "\t\t${3:/* column operations */}",
+            "\tCOLELSE",
+            "COLEND"
+        ],
+        "description": "Column Case Snippet"
+    },
+    "column-merge": {
+        "prefix": "column.join",
+        "body": [
+            "COLJOIN(${1:destination_column>},${2:comma_seperated_list_of_columns_or_text_to_merge})"
+        ],
+        "description": "Column Merge Snippet"
+    },
+    "column-split": {
+        "prefix": "column.split",
+        "body": [
+            "COLSPLIT(${1:source_column},/${2:regex}/,${3:comma_seperated_list_of_columns_created_based_on_regex})"
+        ],
+        "description": "Column Split Snippet"
+    },
+    "column-fill": {
+        "prefix": "column.fill",
+        "body": [
+            "COLFILL(${1:source_column})"
+        ],
+        "description": "Column Fill Snippet"
+    },
+    "column-add": {
+        "prefix": "column.add",
+        "body": [
+            "COLCALC(${1:destination_column},PLUS,${2:source_column},${3:text_or_column_to_add})"
+        ],
+        "description": "Column Add Snippet"
+    },
+    "column-subtract": {
+        "prefix": "column.subtract",
+        "body": [
+            "COLCALC(${1:destination_column},MINUS,${2:source_column},${3:text_or_column_to_subtract})"
+        ],
+        "description": "Column Subtract Snippet"
+    },
+    "column-product": {
+        "prefix": "column.product",
+        "body": [
+            "COLCALC(${1:destination_column},TIMES,${2:source_column},${3:text/column_to_multiply_by})"
+        ],
+        "description": "Column Product Snippet"
+    },
+    "column-divide": {
+        "prefix": "column.divide",
+        "body": [
+            "COLCALC(${1:destination_column},DIVIDEBY,${2:source_column},${3:text_or_column_to_divide_by})"
+        ],
+        "description": "Column Divide Snippet"
+    },
+    "column-power": {
+        "prefix": "column.power",
+        "body": [
+            "COLCALC(${1:destination_column},XTOPOWY,${2:source_column},${3:text_or_column_to_power_by})"
+        ],
+        "description": "Column Power Snippet"
+    },
+    "column-uppercase": {
+        "prefix": "column.uppercase",
+        "body": [
+            "COLCALC(${1:destination_column},UC,${2:source_column})"
+        ],
+        "description": "Column Uppercase Snippet"
+    },
+    "column-lowercase": {
+        "prefix": "column.lowercase",
+        "body": [
+            "COLCALC(${1:destination_column},LC,${2:source_column})"
+        ],
+        "description": "Column Lowercase Snippet"
+    },
+    "column-md5": {
+        "prefix": "column.md5",
+        "body": [
+            "COLCALC(${1:destination_column>},MD5,${2:source_column})"
+        ],
+        "description": "Column MD5 Snippet"
+    },
+    "column-replace": {
+        "prefix": "column.replace",
+        "body": [
+            "COLREP(/${1:text_or_regex_to_replace}/,'${2:text_or_column_to_replace_with}',${3:source_column})"
+        ],
+        "description": "Column Replace Snippet"
+    },
+    "column-map": {
+        "prefix": "column.map",
+        "body": [
+            "COLMAP(${1:destination_column}, ${2:source_column},/${3:pattern}/,${4:text_or_column_to_map_if_pattern_matches}, ${5:text_or_column_to_map_if_pattern_does_not_matches})"
+        ],
+        "description": "Column Map Snippet"
+    },
+    "column-drop": {
+        "prefix": "column.drop",
+        "body": [
+            "COLDROP(${1:source_column})"
+        ],
+        "description": "Column Drop Snippet"
+    }
+}

@@ -22,6 +22,12 @@
         ]
       }
     ],
+    "snippets": [
+      {
+        "language": "spl",
+        "path": "./snippets/snippets.json"
+      }
+    ],
     "configuration": {
       "type": "object",
       "title": "Client configuration",

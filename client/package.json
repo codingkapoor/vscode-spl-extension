@@ -21,15 +21,24 @@
         "configuration": "./language-configuration.json"
       }
     ],
-    "grammars": [{
-      "language": "spl",
-      "scopeName": "source.spl",
-      "path": "./syntaxes/spl.tmLanguage.json"
-    }],
+    "grammars": [
+      {
+        "language": "spl",
+        "scopeName": "source.spl",
+        "path": "./syntaxes/spl.tmLanguage.json"
+      }
+    ],
     "snippets": [
       {
         "language": "spl",
         "path": "./snippets/spl.json"
+      }
+    ],
+    "themes": [
+      {
+          "label": "Spl Dark",
+          "uiTheme": "vs-dark",
+          "path": "./themes/spl.json"
       }
     ],
     "configuration": {

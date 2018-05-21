@@ -1,32 +1,70 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Spl",
+	"scopeName": "source.spl",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{ "include": "#storages" },
+		{ "include": "#functions" },
+		{ "include": "#strings" },
+		{ "include": "#variables" },
+		{ "include": "#controls" },
+		{ "include": "#regexes" }
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.definition.spl",
-				"match": "\\b(DEFINE|NAMESPACE|TABLE|COLUMN)\\b"
-			}]
+		"storages": {
+			"patterns": [
+				{
+					"name": "storage.type.spl",
+					"match": "(NAMESPACE|TABLE|COLUMN)"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.spl",
+					"match": "(CONSTRAIN|ADD_CONTEXT|COLCOPY|COLCALC|COLSPLIT|COLFILL|COLDROP|COLJOIN|COLREP|COLMAP)"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.language.spl",
+					"match": "(DESCRIPTION|REF|TYPE|LOCK|WITH SOLRMAPPING|SOLR|BUNDLETYPE|BEGINS WITH|ENDS WITH|FILEPATTERN|CONTEXT|AS|ICON|LINEGRAB|MULTILINE|SKIP)"
+				},
+				{
+					"name": "variable.other.member.spl",
+					"match": "(content|units|label|uploaded_by|fragment_id|facet|ts|sysid1|linked|severity|name|datatype|uniquefielddef|multivalued|obs_url)"
+				}
+			]
+		},
+		"controls": {
+			"patterns": [
+				{
+					"name": "keyword.control.conditional.spl",
+					"match": "(COLCASE|COLWHEN|COLELSE|COLEND)"
+				},
+				{
+					"name": "keyword.control.define.spl",
+					"match": "DEFINE"
+				}
+			]
 		},
 		"strings": {
-			"name": "string.quoted.double.spl",
-			"begin": "\"",
-			"end": "\"",
+			"name": "string.quoted.single.spl",
+			"begin": "'",
+			"end": "'",
 			"patterns": [
 				{
 					"name": "constant.character.escape.spl",
 					"match": "\\\\."
 				}
 			]
+		},
+		"regexes": {
+			"name": "string.regexp.spl",
+			"begin": "/",
+			"end": "/"
 		}
-	},
-	"scopeName": "source.spl"
+	}
 }

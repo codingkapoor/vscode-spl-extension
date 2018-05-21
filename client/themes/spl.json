@@ -1,0 +1,75 @@
+{
+	"name": "Spl Dark",
+	"type": "dark",
+	"colors": {
+		"editor.background": "#1e1e1e",
+		"editor.foreground": "#d4d4d4",
+		"activityBarBadge.background": "#007acc",
+		"sideBarTitle.foreground": "#bbbbbb"
+	},
+	"tokenColors": [
+		{
+			"name": "Storages",
+			"scope": [
+				"storage.type.spl"
+			],
+			"settings": {
+				"foreground": "#CC3F0F"
+			}
+        },
+        {
+            "name": "Functions",
+            "scope": [
+                "entity.name.function.spl"
+            ],
+            "settings": {
+                "foreground": "#DD9B0F"
+            }
+        },
+        {
+            "name": "Variables",
+            "scope": [
+                "variable.language.spl"
+            ],
+            "settings": {
+                "foreground": "#1DA0B3"
+            }
+        },
+        {
+            "name": "Conditionals",
+            "scope": [
+                "keyword.control.conditional.spl"
+            ],
+            "settings": {
+                "foreground": "#848716"
+            }
+        },
+        {
+            "name": "Definitions",
+            "scope": [
+                "keyword.control.define.spl"
+            ],
+            "settings": {
+                "foreground": "#546E7A"
+            }
+        },
+        {
+            "name": "Strings",
+            "scope": [
+                "string.quoted.single.spl"
+            ],
+            "settings": {
+                "foreground": "#DA9FEF"
+            }
+        },
+        {
+            "name": "Regular Expressions",
+            "scope": [
+                "string.regexp.spl"
+            ],
+            "settings": {
+                "foreground": "#BDF2F5"
+            }
+        }
+	]
+}

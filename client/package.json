@@ -21,6 +21,11 @@
         "configuration": "./language-configuration.json"
       }
     ],
+    "grammars": [{
+      "language": "spl",
+      "scopeName": "source.spl",
+      "path": "./syntaxes/spl.tmLanguage.json"
+    }],
     "snippets": [
       {
         "language": "spl",

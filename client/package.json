@@ -16,10 +16,9 @@
     "languages": [
       {
         "id": "spl",
-        "extensions": [
-          ".spl",
-          ".SPL"
-        ]
+        "aliases": ["Spl", "spl"],
+        "extensions": [".spl",".SPL"],
+        "configuration": "./language-configuration.json"
       }
     ],
     "snippets": [

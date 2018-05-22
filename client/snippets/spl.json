@@ -2,7 +2,7 @@
     "namespace": {
         "prefix": "define.namespace",
         "body": [
-            "DEFINE NAMESPACE ${1:namespace_name} DESCRIPTION '${2:namespace_description}' TYPE ${3:type}",
+            "DEFINE NAMESPACE ${1:namespace_name} DESCRIPTION '${2:namespace_description}' TYPE ${3|UNPARSED,TRASH,EVENT|}",
             "\tBEGINS WITH /${4:beginswith_regex}/",
             "\tFILEPATTERN /${5:file_pattern}/",
             ";"

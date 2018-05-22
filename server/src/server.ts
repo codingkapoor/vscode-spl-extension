@@ -449,5 +449,79 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 
 // This handler resolve additional information for the item selected in the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
+	if (item.data === 2) {
+		item.detail = 'NAMESPACE details',
+			item.documentation = 
+`Definition:
+A namespace is used to divide the log into smaller logical chunks. It defines the structure (or sections) for the parser. Use the BEGINS WITH, ENDS WITH and FILEPATTERN constructs to define the boundary of a namespace.
+
+Namespaces can be defined in the hierarchical order. A parent namespace should encapsulate all the child namespaces i.e., the BEGINS WITH and ENDS WITH of the parent, should act as the boundaries of the BEGINS WITH and ENDS WITH of the child namespaces.
+
+Usage:
+DEFINE NAMESPACE @ns-name 
+	DESCRIPTION ‘@ns-description’  
+	[TYPE @ns-type] 
+	[LOCK]? 
+	[SOLR]? 
+	[REF @parent-ns-name]
+	BEGINS WITH /@regex/
+	[ENDS WITH /@regex/]?
+	[FILEPATTERN /@regex/]?
+	[BUNDLETYPE '@bundle-type']?
+	[CONTEXT /@regex-with-back-reference/ AS @col-name[(, col-name)(, col-name)…]]}
+;
+
+#TYPE# Namespace type could be EVENT or UNPARSED or SESSION or SECTION or STAT or TRASH.
+#LOCK# Optional. Depicts current namespace as the only namespace for the complete file.
+#SOLR# Optional. Namespace data is written also to SOLR, if specified.
+#REF# Namespace name of the parent namespace.
+#BEGINS WITH# A regular expression to identify the beginning of a section (defined as a namespace).
+#ENDS WITH# A regular expression to identify the end of a section (defined as a namespace). It is optional. If an END is not defined, the starting of a new namespace is considered as the end of the previous namespace.
+#FILEPATTERN# A regular expression to identify files of interest within a bundle. It is optional but recommended so that the parser searches for a namespace in only specific file.
+#BUNDLETYPE# The type of the bundle this namespace is created for.
+#CONTEXT# Use Context when you want to capture particular information from the namespace. It captures the information in a variable which can be populated in the table defined for that namespace or any of its child namespace.
+
+Rules:
+- Parent namespace should define before defining childNamespace.
+- Back reference regex allowed only in CONTEXT.
+- Order should not be change.
+- FILEPATTERN is an optional and not required for child namespaces.
+- TYPE by default value is ‘SECTION’ if it is not mentioned.
+`			
+	} else if (item.data === 3) {
+		item.detail = 'TABLE details',
+			item.documentation =
+`Definition:
+Tables are declared within a namespace to populate its row and column data. It contains the parser ICON and all column definitions.
+
+Usage:
+DEFINE TABLE @tbl-name
+	NAMESPACE @ns-name
+	ICON @icon-type
+	LINEGRAB /@regex/
+	MULTILINE /@regex/
+	SKIP @num
+
+	COLUMN @col-name  (obj.aspect)     [@datatype(@size):nn|n]       	<label=@label>
+
+	[ADD_CONTEXT(@var1, @var2..)]
+	CONSTRAIN()
+;
+
+#NAMESPACE# Namespace to which this table belongs to.
+#ICON# It tells the parser about the structure of the section defined in the namespace associated with the table. There are six parser icons defined in the SPL for different log/data structures, which includes, nvpair_basic, aligned_basic, list_basic, xml_basic, json & csv_basic.
+#LINEGRAB# Regular expression to match a line in a file. It is required only when the icon type is 'list-basic'.
+#MULTILINE# Specifies whether data stretches belong single line.
+#SKIP# Specifies the number of lines to skip before starting parsing.
+#ADD_CONTEXT# It is a special method to get column values which defined in context or captured at namespace level using CONTEXT. Table should have column definition for the columns getting from ADD_CONTEXT. Multiple column can be specify with comma separated.
+#CONTRAIN# It is used to enable null validation of the column values. It the validation fails the entire row is rejected by the parser.	
+
+Rules:
+- Table definitions cannot go without icon definitions.
+- Any table without the table ICON will not be executed.
+- All the parsed data can be manipulated using the COLUMN function.
+`
+	}
+
 	return item;
 });

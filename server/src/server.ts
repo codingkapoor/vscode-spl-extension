@@ -57,13 +57,17 @@ connection.onInitialize((params): InitializeResult => {
 	return {		
 		capabilities: {
 			// Tell the client that the server works in FULL text document sync mode
-			textDocumentSync: documents.syncKind	
+			textDocumentSync: documents.syncKind,
+			
+			// Tell the client that the server support code complete
+			completionProvider: {
+				resolveProvider: true
+			}
 		}
 	}
 });
 
-// The settings have changed. Is send on server activation
-// as well.
+// The settings have changed. Is send on server activation as well.
 connection.onDidChangeConfiguration((change) => {
 	let settings = <Settings>change.settings;
 	maxNumberOfProblems = settings.splLanguageServer.maxNumberOfProblems || 100;
@@ -106,3 +110,49 @@ function validateDotDocument(textDocument: TextDocument): void {
 	// Send the computed diagnostics to VSCode.
 	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
+
+// This handler provides the initial list of the completion items.
+connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
+	return [
+		{
+			label: 'DEFINE',
+			kind: CompletionItemKind.Text,
+			data: 1
+		},
+		{
+			label: 'NAMESPACE',
+			kind: CompletionItemKind.Text,
+			data: 2
+		},
+		{
+			label: 'TABLE',
+			kind: CompletionItemKind.Text,
+			data: 3
+		},
+		{
+			label: 'COLUMN',
+			kind: CompletionItemKind.Text,
+			data: 4
+		}
+	]
+});
+
+// This handler resolve additional information for the item selected in the completion list.
+connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
+	if (item.data === 1) {
+		item.detail = 'DEFINE details',
+		item.documentation = 'DEFINE documentation'
+	} else if (item.data === 2) {
+		item.detail = 'NAMESPACE details',
+		item.documentation = 'NAMESPACE documentation'
+	} else if (item.data === 3) {
+		item.detail = 'TABLE details',
+		item.documentation = 'TABLE documentation'
+	} else if (item.data === 4) {
+		item.detail = 'COLUMN details',
+		item.documentation = 'COLUMN documentation'
+	}
+	
+	return item;
+});
+

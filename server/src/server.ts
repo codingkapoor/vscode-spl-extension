@@ -116,43 +116,338 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 	return [
 		{
 			label: 'DEFINE',
-			kind: CompletionItemKind.Text,
+			kind: CompletionItemKind.Keyword,
 			data: 1
 		},
 		{
 			label: 'NAMESPACE',
-			kind: CompletionItemKind.Text,
+			kind: CompletionItemKind.Keyword,
 			data: 2
 		},
 		{
 			label: 'TABLE',
-			kind: CompletionItemKind.Text,
+			kind: CompletionItemKind.Keyword,
 			data: 3
 		},
 		{
 			label: 'COLUMN',
-			kind: CompletionItemKind.Text,
+			kind: CompletionItemKind.Keyword,
 			data: 4
-		}
+		},
+		{
+			label: 'DESCRIPTION',
+			kind: CompletionItemKind.Property,
+			data: 5
+		},
+		{
+			label: 'REF',
+			kind: CompletionItemKind.Property,
+			data: 6
+		},
+		{
+			label: 'TYPE',
+			kind: CompletionItemKind.Property,
+			data: 7
+		},
+		{
+			label: 'LOCK',
+			kind: CompletionItemKind.Property,
+			data: 8
+		},
+		{
+			label: 'SOLR',
+			kind: CompletionItemKind.Property,
+			data: 9
+		},
+		{
+			label: 'BUNDLETYPE',
+			kind: CompletionItemKind.Property,
+			data: 10
+		},
+		{
+			label: 'BEGINS WITH',
+			kind: CompletionItemKind.Property,
+			data: 11
+		},
+		{
+			label: 'ENDS WITH',
+			kind: CompletionItemKind.Property,
+			data: 12
+		},
+		{
+			label: 'FILEPATTERN',
+			kind: CompletionItemKind.Property,
+			data: 13
+		},
+		{
+			label: 'CONTEXT',
+			kind: CompletionItemKind.Property,
+			data: 14
+		},
+		{
+			label: 'AS',
+			kind: CompletionItemKind.Keyword,
+			data: 15
+		},
+		{
+			label: 'ICON',
+			kind: CompletionItemKind.Property,
+			data: 16
+		},
+		{
+			label: 'LINEGRAB',
+			kind: CompletionItemKind.Property,
+			data: 17
+		},
+		{
+			label: 'MULTILINE',
+			kind: CompletionItemKind.Property,
+			data: 18
+		},
+		{
+			label: 'MULTILINE NOT',
+			kind: CompletionItemKind.Property,
+			data: 19
+		},
+		{
+			label: 'SKIP',
+			kind: CompletionItemKind.Property,
+			data: 20
+		},
+		{
+			label: 'WITH SOLRMAPPING',
+			kind: CompletionItemKind.Property,
+			data: 21
+		},
+		{
+			label: 'COLCASE',
+			kind: CompletionItemKind.Keyword,
+			data: 22
+		},
+		{
+			label: 'COLWHEN',
+			kind: CompletionItemKind.Keyword,
+			data: 23
+		},
+		{
+			label: 'COLELSE',
+			kind: CompletionItemKind.Keyword,
+			data: 24
+		},
+		{
+			label: 'COLEND',
+			kind: CompletionItemKind.Keyword,
+			data: 25
+		},
+		{
+			label: 'COLCOPY',
+			kind: CompletionItemKind.Function,
+			data: 26
+		},
+		{
+			label: 'COLSPLIT',
+			kind: CompletionItemKind.Function,
+			data: 27
+		},
+		{
+			label: 'COLCALC',
+			kind: CompletionItemKind.Function,
+			data: 28
+		},
+		{
+			label: 'COLREP',
+			kind: CompletionItemKind.Function,
+			data: 29
+		},
+		{
+			label: 'COLMAP',
+			kind: CompletionItemKind.Function,
+			data: 30
+		},
+		{
+			label: 'COLJOIN',
+			kind: CompletionItemKind.Function,
+			data: 31
+		},
+		{
+			label: 'COLDROP',
+			kind: CompletionItemKind.Function,
+			data: 32
+		},
+		{
+			label: 'COLFILL',
+			kind: CompletionItemKind.Function,
+			data: 33
+		},
+		{
+			label: 'ADD_CONTEXT',
+			kind: CompletionItemKind.Function,
+			data: 34
+		},
+		{
+			label: 'CONSTRAIN',
+			kind: CompletionItemKind.Function,
+			data: 35
+		},
+		{
+			label: 'LC',
+			kind: CompletionItemKind.Operator,
+			data: 36
+		},
+		{
+			label: 'UC',
+			kind: CompletionItemKind.Operator,
+			data: 37
+		},
+		{
+			label: 'HEX2DEC',
+			kind: CompletionItemKind.Operator,
+			data: 38
+		},
+		{
+			label: 'XTOPOWY',
+			kind: CompletionItemKind.Operator,
+			data: 39
+		},
+		{
+			label: 'MD5',
+			kind: CompletionItemKind.Operator,
+			data: 40
+		},
+		{
+			label: 'PLUS',
+			kind: CompletionItemKind.Operator,
+			data: 41
+		},
+		{
+			label: 'MINUS',
+			kind: CompletionItemKind.Operator,
+			data: 42
+		},
+		{
+			label: 'TIMES',
+			kind: CompletionItemKind.Operator,
+			data: 43
+		},
+		{
+			label: 'DIVIDEBY',
+			kind: CompletionItemKind.Operator,
+			data: 44
+		},
+		{
+			label: 'SDF2EPOCH',
+			kind: CompletionItemKind.Operator,
+			data: 45
+		},
+		{
+			label: 'STR2TIME',
+			kind: CompletionItemKind.Operator,
+			data: 46
+		},
+		{
+			label: 'EPOCH2SDF',
+			kind: CompletionItemKind.Operator,
+			data: 47
+		},
+		{
+			label: 'STR2SUM',
+			kind: CompletionItemKind.Operator,
+			data: 48
+		},
+		{
+			label: 'ADJYEAR',
+			kind: CompletionItemKind.Operator,
+			data: 49
+		},
+		{
+			label: 'CONCAT',
+			kind: CompletionItemKind.Operator,
+			data: 50
+		},
+		{
+			label: 'INT',
+			kind: CompletionItemKind.Operator,
+			data: 51
+		},
+		{
+			label: 'TIME2HOUR',
+			kind: CompletionItemKind.Operator,
+			data: 52
+		},
+		{
+			label: 'TIME210MIN',
+			kind: CompletionItemKind.Operator,
+			data: 53
+		},
+		{
+			label: 'TIME2DAY',
+			kind: CompletionItemKind.Operator,
+			data: 54
+		},
+		{
+			label: 'UNPARSED',
+			kind: CompletionItemKind.Enum,
+			data: 55
+		},
+		{
+			label: 'TRASH',
+			kind: CompletionItemKind.Enum,
+			data: 56
+		},
+		{
+			label: 'EVENT',
+			kind: CompletionItemKind.Enum,
+			data: 57
+		},
+		{
+			label: 'STAT',
+			kind: CompletionItemKind.Enum,
+			data: 58
+		},
+		{
+			label: 'SESSION',
+			kind: CompletionItemKind.Enum,
+			data: 59
+		},
+		{
+			label: 'list_basic',
+			kind: CompletionItemKind.Enum,
+			data: 60
+		},
+		{
+			label: 'aligned_basic',
+			kind: CompletionItemKind.Enum,
+			data: 61
+		},
+		{
+			label: 'nvpair_basic',
+			kind: CompletionItemKind.Enum,
+			data: 62
+		},
+		{
+			label: 'xml_basic',
+			kind: CompletionItemKind.Enum,
+			data: 63
+		},
+		{
+			label: 'json',
+			kind: CompletionItemKind.Enum,
+			data: 64
+		},
+		{
+			label: 'static',
+			kind: CompletionItemKind.Text,
+			data: 65
+		},
+		{
+			label: 'config',
+			kind: CompletionItemKind.Text,
+			data: 66
+		}		
 	]
 });
 
 // This handler resolve additional information for the item selected in the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
-	if (item.data === 1) {
-		item.detail = 'DEFINE details',
-		item.documentation = 'DEFINE documentation'
-	} else if (item.data === 2) {
-		item.detail = 'NAMESPACE details',
-		item.documentation = 'NAMESPACE documentation'
-	} else if (item.data === 3) {
-		item.detail = 'TABLE details',
-		item.documentation = 'TABLE documentation'
-	} else if (item.data === 4) {
-		item.detail = 'COLUMN details',
-		item.documentation = 'COLUMN documentation'
-	}
-	
 	return item;
 });
-

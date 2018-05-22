@@ -8,6 +8,15 @@
 		"sideBarTitle.foreground": "#bbbbbb"
 	},
 	"tokenColors": [
+        {
+            "name": "Definitions",
+            "scope": [
+                "keyword.control.define.spl"
+            ],
+            "settings": {
+                "foreground": "#546E7A"
+            }
+        },
 		{
 			"name": "Storages",
 			"scope": [
@@ -45,9 +54,9 @@
             }
         },
         {
-            "name": "Definitions",
+            "name": "Operators",
             "scope": [
-                "keyword.control.define.spl"
+                "keyword.operator.word"
             ],
             "settings": {
                 "foreground": "#546E7A"

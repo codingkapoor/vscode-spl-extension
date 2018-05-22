@@ -4,9 +4,10 @@
 	"patterns": [
 		{ "include": "#storages" },
 		{ "include": "#functions" },
-		{ "include": "#strings" },
 		{ "include": "#variables" },
 		{ "include": "#controls" },
+		{ "include": "#operators" },
+		{ "include": "#strings" },
 		{ "include": "#regexes" }
 	],
 	"repository": {
@@ -31,10 +32,6 @@
 				{
 					"name": "variable.language.spl",
 					"match": "(DESCRIPTION|REF|TYPE|LOCK|WITH SOLRMAPPING|SOLR|BUNDLETYPE|BEGINS WITH|ENDS WITH|FILEPATTERN|CONTEXT|AS|ICON|LINEGRAB|MULTILINE|SKIP)"
-				},
-				{
-					"name": "variable.other.member.spl",
-					"match": "(content|units|label|uploaded_by|fragment_id|facet|ts|sysid1|linked|severity|name|datatype|uniquefielddef|multivalued|obs_url)"
 				}
 			]
 		},
@@ -47,6 +44,14 @@
 				{
 					"name": "keyword.control.define.spl",
 					"match": "DEFINE"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.word",
+					"match": "(LC|UC|HEX2DEC|XTOPOWY|MD5|PLUS|MINUS|TIMES|DIVIDEBY|SDF2EPOCH|STR2TIME|EPOCH2SDF|STR2SUM|ADJYEAR|CONCAT|INT|TIME2HOUR|TIME210MIN|TIME2DAY)"
 				}
 			]
 		},

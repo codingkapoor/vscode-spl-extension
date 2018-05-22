@@ -23,7 +23,7 @@
 				"storage.type.spl"
 			],
 			"settings": {
-				"foreground": "#CC3F0F"
+				"foreground": "#53B04A"
 			}
         },
         {
@@ -78,6 +78,15 @@
             ],
             "settings": {
                 "foreground": "#BDF2F5"
+            }
+        },
+        {
+            "name": "Comments",
+            "scope": [
+                "comment.line"
+            ],
+            "settings": {
+                "foreground": "#72721C"
             }
         }
 	]

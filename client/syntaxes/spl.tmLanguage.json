@@ -7,8 +7,9 @@
 		{ "include": "#variables" },
 		{ "include": "#controls" },
 		{ "include": "#operators" },
+		{ "include": "#regexes" },
 		{ "include": "#strings" },
-		{ "include": "#regexes" }
+		{ "include": "#comments" }
 	],
 	"repository": {
 		"storages": {
@@ -55,6 +56,14 @@
 				}
 			]
 		},
+		"regexes": {
+			"patterns": [
+				{
+					"name": "string.regexp.spl",
+					"match": "\/.*\/"
+				}
+			]
+		},
 		"strings": {
 			"name": "string.quoted.single.spl",
 			"begin": "'",
@@ -66,10 +75,13 @@
 				}
 			]
 		},
-		"regexes": {
-			"name": "string.regexp.spl",
-			"begin": "/",
-			"end": "/"
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "#.*"
+				}
+			]
 		}
 	}
 }

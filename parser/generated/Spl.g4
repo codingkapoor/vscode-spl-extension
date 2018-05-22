@@ -224,7 +224,7 @@ colcase_else : col_op_def*;
 
 
 // Lexer
-
+Comment:  '#' ~( '\r' | '\n' )* ;
 SEMICOLON: ';' ;
 COLON : ':' ;
 DIVIDE : '/' ; 

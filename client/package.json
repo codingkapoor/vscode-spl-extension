@@ -16,8 +16,14 @@
     "languages": [
       {
         "id": "spl",
-        "aliases": ["Spl", "spl"],
-        "extensions": [".spl",".SPL"],
+        "aliases": [
+          "Spl",
+          "spl"
+        ],
+        "extensions": [
+          ".spl",
+          ".SPL"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -36,9 +42,9 @@
     ],
     "themes": [
       {
-          "label": "Spl Dark",
-          "uiTheme": "vs-dark",
-          "path": "./themes/spl.json"
+        "label": "Spl Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/spl.json"
       }
     ],
     "configuration": {

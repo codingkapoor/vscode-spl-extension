@@ -12,7 +12,7 @@ import {
 import * as fs from 'fs';
 import * as path from 'path';
 
-var docs = require('./docs');
+var spl = require('./spl');
 var parser = require('parser');
 
 // Create a connection for the server. The connection uses Node's IPC as a transport
@@ -73,16 +73,16 @@ connection.onDidChangeConfiguration((change) => {
 	let settings = <Settings>change.settings;
 	maxNumberOfProblems = settings.splLanguageServer.maxNumberOfProblems || 100;
 	// Revalidate any open text documents
-	documents.all().forEach(validateDotDocument);
+	documents.all().forEach(validateSplDocument);
 })
 
 // The content of a text document has changed. This event is emitted
 // when the text document first opened or when its content has changed.
 documents.onDidChangeContent((change) => {
-	validateDotDocument(change.document);
+	validateSplDocument(change.document);
 });;
 
-function validateDotDocument(textDocument: TextDocument): void {
+function validateSplDocument(textDocument: TextDocument): void {
 	let diagnostics: Diagnostic[] = [];	
 
 	var res = parser.SplValidator.doValidation(textDocument.getText());
@@ -113,447 +113,59 @@ function validateDotDocument(textDocument: TextDocument): void {
 }
 
 // This handler provides the initial list of the completion items.
-connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-	return [
-		{
-			label: 'DEFINE',
-			kind: CompletionItemKind.Keyword,
-			data: 1
-		},
-		{
-			label: 'NAMESPACE',
-			kind: CompletionItemKind.Keyword,
-			data: 2
-		},
-		{
-			label: 'TABLE',
-			kind: CompletionItemKind.Keyword,
-			data: 3
-		},
-		{
-			label: 'COLUMN',
-			kind: CompletionItemKind.Keyword,
-			data: 4
-		},
-		{
-			label: 'DESCRIPTION',
-			kind: CompletionItemKind.Property,
-			data: 5
-		},
-		{
-			label: 'REF',
-			kind: CompletionItemKind.Property,
-			data: 6
-		},
-		{
-			label: 'TYPE',
-			kind: CompletionItemKind.Property,
-			data: 7
-		},
-		{
-			label: 'LOCK',
-			kind: CompletionItemKind.Property,
-			data: 8
-		},
-		{
-			label: 'SOLR',
-			kind: CompletionItemKind.Property,
-			data: 9
-		},
-		{
-			label: 'BUNDLETYPE',
-			kind: CompletionItemKind.Property,
-			data: 10
-		},
-		{
-			label: 'BEGINS WITH',
-			kind: CompletionItemKind.Property,
-			data: 11
-		},
-		{
-			label: 'ENDS WITH',
-			kind: CompletionItemKind.Property,
-			data: 12
-		},
-		{
-			label: 'FILEPATTERN',
-			kind: CompletionItemKind.Property,
-			data: 13
-		},
-		{
-			label: 'CONTEXT',
-			kind: CompletionItemKind.Property,
-			data: 14
-		},
-		{
-			label: 'AS',
-			kind: CompletionItemKind.Keyword,
-			data: 15
-		},
-		{
-			label: 'ICON',
-			kind: CompletionItemKind.Property,
-			data: 16
-		},
-		{
-			label: 'LINEGRAB',
-			kind: CompletionItemKind.Property,
-			data: 17
-		},
-		{
-			label: 'MULTILINE',
-			kind: CompletionItemKind.Property,
-			data: 18
-		},
-		{
-			label: 'MULTILINE NOT',
-			kind: CompletionItemKind.Property,
-			data: 19
-		},
-		{
-			label: 'SKIP',
-			kind: CompletionItemKind.Property,
-			data: 20
-		},
-		{
-			label: 'WITH SOLRMAPPING',
-			kind: CompletionItemKind.Property,
-			data: 21
-		},
-		{
-			label: 'COLCASE',
-			kind: CompletionItemKind.Keyword,
-			data: 22
-		},
-		{
-			label: 'COLWHEN',
-			kind: CompletionItemKind.Keyword,
-			data: 23
-		},
-		{
-			label: 'COLELSE',
-			kind: CompletionItemKind.Keyword,
-			data: 24
-		},
-		{
-			label: 'COLEND',
-			kind: CompletionItemKind.Keyword,
-			data: 25
-		},
-		{
-			label: 'COLCOPY',
-			kind: CompletionItemKind.Function,
-			data: 26
-		},
-		{
-			label: 'COLSPLIT',
-			kind: CompletionItemKind.Function,
-			data: 27
-		},
-		{
-			label: 'COLCALC',
-			kind: CompletionItemKind.Function,
-			data: 28
-		},
-		{
-			label: 'COLREP',
-			kind: CompletionItemKind.Function,
-			data: 29
-		},
-		{
-			label: 'COLMAP',
-			kind: CompletionItemKind.Function,
-			data: 30
-		},
-		{
-			label: 'COLJOIN',
-			kind: CompletionItemKind.Function,
-			data: 31
-		},
-		{
-			label: 'COLDROP',
-			kind: CompletionItemKind.Function,
-			data: 32
-		},
-		{
-			label: 'COLFILL',
-			kind: CompletionItemKind.Function,
-			data: 33
-		},
-		{
-			label: 'ADD_CONTEXT',
-			kind: CompletionItemKind.Function,
-			data: 34
-		},
-		{
-			label: 'CONSTRAIN',
-			kind: CompletionItemKind.Function,
-			data: 35
-		},
-		{
-			label: 'UNPARSED',
-			kind: CompletionItemKind.Enum,
-			data: 36
-		},
-		{
-			label: 'TRASH',
-			kind: CompletionItemKind.Enum,
-			data: 37
-		},
-		{
-			label: 'EVENT',
-			kind: CompletionItemKind.Enum,
-			data: 38
-		},
-		{
-			label: 'STAT',
-			kind: CompletionItemKind.Enum,
-			data: 39
-		},
-		{
-			label: 'SESSION',
-			kind: CompletionItemKind.Enum,
-			data: 40
-		},
-		{
-			label: 'list_basic',
-			kind: CompletionItemKind.Enum,
-			data: 41
-		},
-		{
-			label: 'aligned_basic',
-			kind: CompletionItemKind.Enum,
-			data: 42
-		},
-		{
-			label: 'nvpair_basic',
-			kind: CompletionItemKind.Enum,
-			data: 43
-		},
-		{
-			label: 'xml_basic',
-			kind: CompletionItemKind.Enum,
-			data: 44
-		},
-		{
-			label: 'json',
-			kind: CompletionItemKind.Enum,
-			data: 45
-		},
-		{
-			label: 'csv_noheader',
-			kind: CompletionItemKind.Enum,
-			data: 46
-		},
-		{
-			label: 'csv_withheader',
-			kind: CompletionItemKind.Enum,
-			data: 47
-		},
-		{
-			label: 'ADJYEAR',
-			kind: CompletionItemKind.Enum,
-			data: 48
-		},
-		{
-			label: 'TIME2QTR',
-			kind: CompletionItemKind.Enum,
-			data: 49
-		},
-		{
-			label: 'TIME2MONTH',
-			kind: CompletionItemKind.Enum,
-			data: 50
-		},
-		{
-			label: 'TIME2WEEK',
-			kind: CompletionItemKind.Enum,
-			data: 51
-		},
-		{
-			label: 'TIME2DAY',
-			kind: CompletionItemKind.Enum,
-			data: 52
-		},
-		{
-			label: 'TIME2HOUR',
-			kind: CompletionItemKind.Enum,
-			data: 53
-		},
-		{
-			label: 'TIME24HOUR',
-			kind: CompletionItemKind.Enum,
-			data: 54
-		},
-		{
-			label: 'TIME210MIN',
-			kind: CompletionItemKind.Enum,
-			data: 55
-		},
-		{
-			label: 'TIME2MIN',
-			kind: CompletionItemKind.Enum,
-			data: 56
-		},
-		{
-			label: 'TIME230DAY',
-			kind: CompletionItemKind.Enum,
-			data: 57
-		},
-		{
-			label: 'SDF2EPOCH',
-			kind: CompletionItemKind.Enum,
-			data: 58
-		},
-		{
-			label: 'EPOCH2SDF',
-			kind: CompletionItemKind.Enum,
-			data: 59
-		},
-		{
-			label: 'GMTIME',
-			kind: CompletionItemKind.Enum,
-			data: 60
-		},
-		{
-			label: 'LOCALTIME',
-			kind: CompletionItemKind.Enum,
-			data: 61
-		},
-		{
-			label: 'DATEDIFF',
-			kind: CompletionItemKind.Enum,
-			data: 62
-		},
-		{
-			label: 'INT',
-			kind: CompletionItemKind.Enum,
-			data: 63
-		},
-		{
-			label: 'MINUS',
-			kind: CompletionItemKind.Enum,
-			data: 64
-		},
-		{
-			label: 'PLUS',
-			kind: CompletionItemKind.Enum,
-			data: 65
-		},
-		{
-			label: 'TIMES',
-			kind: CompletionItemKind.Enum,
-			data: 66
-		},
-		{
-			label: 'DIVIDEBY',
-			kind: CompletionItemKind.Enum,
-			data: 67
-		},
-		{
-			label: 'RANDINT',
-			kind: CompletionItemKind.Enum,
-			data: 68
-		},
-		{
-			label: 'XTOPOWY',
-			kind: CompletionItemKind.Enum,
-			data: 69
-		},
-		{
-			label: 'HEX2DEC',
-			kind: CompletionItemKind.Enum,
-			data: 70
-		},
-		{
-			label: 'HEX2BIN',
-			kind: CompletionItemKind.Enum,
-			data: 71
-		},
-		{
-			label: 'BIN2HEX',
-			kind: CompletionItemKind.Enum,
-			data: 72
-		},
-		{
-			label: 'MD5',
-			kind: CompletionItemKind.Enum,
-			data: 73
-		},
-		{
-			label: 'LENGTH',
-			kind: CompletionItemKind.Enum,
-			data: 74
-		},
-		{
-			label: 'CONCAT',
-			kind: CompletionItemKind.Enum,
-			data: 75
-		},
-		{
-			label: 'UC',
-			kind: CompletionItemKind.Enum,
-			data: 76
-		},
-		{
-			label: 'LC',
-			kind: CompletionItemKind.Enum,
-			data: 77
-		},
-		{
-			label: 'ZEROPAD',
-			kind: CompletionItemKind.Enum,
-			data: 78
-		},
-		{
-			label: 'STR2TIME',
-			kind: CompletionItemKind.Enum,
-			data: 79
-		},
-		{
-			label: 'STR2SUM',
-			kind: CompletionItemKind.Enum,
-			data: 80
-		}		
-	]
+connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
+    var res = [], key, obj = spl.vocabulary;
+    for (key in obj)
+        res.push(obj[key]);
+    return res;
 });
 
 // This handler resolve additional information for the item selected in the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
-	if (item.data === 2) {
-		item.detail = 'NAMESPACE details',
-			item.documentation = docs.spl.namespace
-	} else if (item.data === 3) {
-		item.detail = 'TABLE details',
-			item.documentation = docs.spl.table
-	} else if(item.data === 4) {
-		item.detail = 'COLUMN details',
-			item.documentation = docs.spl.column
-	} else if(item.data === 26) {
-		item.detail = 'COLCOPY details',
-			item.documentation = docs.spl.colcopy
-	} else if(item.data === 27) {
-		item.detail = 'COLSPLIT details',
-			item.documentation = docs.spl.colsplit
-	} else if(item.data === 28) {
-		item.detail = 'COLCALC details',
-			item.documentation = docs.spl.colcalc
-	} else if(item.data === 29) {
-		item.detail = 'COLREP details',
-			item.documentation = docs.spl.colrep
-	} else if(item.data === 30) {
-		item.detail = 'COLMAP details',
-			item.documentation = docs.spl.colmap
-	} else if(item.data === 31) {
-		item.detail = 'COLJOIN details',
-			item.documentation = docs.spl.coljoin
-	} else if(item.data === 32) {
-		item.detail = 'COLDROP details',
-			item.documentation = docs.spl.coldrop
-	} else if(item.data === 33) {
-		item.detail = 'COLFILL details',
-			item.documentation = docs.spl.colfill
-	} 
-
-	return item;
+    if (item.data === spl.vocabulary.NAMESPACE.data) {
+        item.detail = spl.vocabulary.NAMESPACE.details,
+            item.documentation = spl.vocabulary.NAMESPACE.documentation;
+    }
+    else if (item.data === spl.vocabulary.TABLE.data) {
+        item.detail = spl.vocabulary.TABLE.details,
+            item.documentation = spl.vocabulary.TABLE.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLUMN.data) {
+        item.detail = spl.vocabulary.COLUMN.details,
+            item.documentation = spl.vocabulary.COLUMN.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLCOPY.data) {
+        item.detail = spl.vocabulary.COLCOPY.details,
+            item.documentation = spl.vocabulary.COLCOPY.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLSPLIT.data) {
+        item.detail = spl.vocabulary.COLSPLIT.details,
+            item.documentation = spl.vocabulary.COLSPLIT.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLCALC.data) {
+        item.detail = spl.vocabulary.COLCALC.details,
+            item.documentation = spl.vocabulary.COLCALC.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLREP.data) {
+        item.detail = spl.vocabulary.COLREP.details,
+            item.documentation = spl.vocabulary.COLREP.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLMAP.data) {
+        item.detail = spl.vocabulary.COLMAP.details,
+            item.documentation = spl.vocabulary.COLMAP.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLJOIN.data) {
+        item.detail = spl.vocabulary.COLJOIN.details,
+            item.documentation = spl.vocabulary.COLJOIN.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLDROP.data) {
+        item.detail = spl.vocabulary.COLDROP.details,
+            item.documentation = spl.vocabulary.COLDROP.documentation;
+    }
+    else if (item.data === spl.vocabulary.COLFILL.data) {
+        item.detail = spl.vocabulary.COLFILL.details,
+            item.documentation = spl.vocabulary.COLFILL.documentation;
+	}
+	
+    return item;
 });

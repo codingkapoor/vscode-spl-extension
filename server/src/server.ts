@@ -114,9 +114,16 @@ function validateSplDocument(textDocument: TextDocument): void {
 
 // This handler provides the initial list of the completion items.
 connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-    var res = [], key, obj = spl.vocabulary;
-    for (key in obj)
-        res.push(obj[key]);
+    var res = [], obj = spl.vocabulary;
+    for (var key in obj) {
+        var value = obj[key];
+        res.push({
+            label: value.label,
+            kind: value.kind,
+            data: value.data
+        });
+    }
+
     return res;
 });
 

@@ -21,6 +21,11 @@ vsce package
 code --install-extension vscode-spl-extension-${semver}.vsix
 ```
 
+## VSCode Debug Configurations
+- Launch Client
+- Attach To Server
+
+
 ## Features
 - Syntax Highlighting
 - Smart Bracket Matching
@@ -29,10 +34,6 @@ code --install-extension vscode-spl-extension-${semver}.vsix
 - Auto Completion
 - Documentation
 - Code Folding
-
-## VSCode Debug Configurations
-- Launch Client
-- Attach To Server
 
 ## Roadmap
 - Show Hovers

@@ -13,7 +13,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 var spl = require('./spl');
-var parser = require('parser');
+var parser = require('../../parser');
 
 // Create a connection for the server. The connection uses Node's IPC as a transport
 let connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));

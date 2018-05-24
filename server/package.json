@@ -8,8 +8,7 @@
     "node": "*"
   },
   "dependencies": {
-    "vscode-languageserver": "^4.1.2",
-    "parser": "file:../parser"
+    "vscode-languageserver": "^4.1.2"
   },
   "devDependencies": {
     "@types/node": "10.0.4",

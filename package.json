@@ -1,15 +1,81 @@
 {
-	"name": "vscode-spl-language-server",
-	"description": "VSCode language server protocol implementation for Spl",
-	"scripts": {
-		"postinstall": "cd server && npm install && cd ../client && npm install && cd ../parser && npm install && cd ..",
-		"compile": "tsc -p client/tsconfig.json && cd server && npm run installServer && cd .. && tsc -p server/tsconfig.json",
-		"compile:client": "tsc -p client/tsconfig.json",
-		"watch:client": "tsc -w -p client/tsconfig.json",
-		"compile:server": "cd server && npm run installServer && cd .. && tsc -p server/tsconfig.json",
-		"watch:server": "cd server && npm run installServer && cd .. && tsc -w -p server/tsconfig.json"
-	},
-	"devDependencies": {
-		"typescript": "2.8.3"
-	}
+  "name": "vscode-spl-extension",
+  "displayName": "Spl",
+  "description": "VSCode extension for Spl",
+  "author": "codingkapoor",
+  "license": "MIT",
+  "publisher": "codingkapoor",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.23.0"
+  },
+  "activationEvents": [
+    "onLanguage:spl"
+  ],
+  "main": "./client/out/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "spl",
+        "aliases": [
+          "Spl",
+          "spl"
+        ],
+        "extensions": [
+          ".spl",
+          ".SPL"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "spl",
+        "scopeName": "source.spl",
+        "path": "./syntaxes/spl.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "spl",
+        "path": "./snippets/spl.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Spl Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/spl.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Client configuration",
+      "properties": {
+        "splLanguageServer.maxNumberOfProblems": {
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "splLanguageServer.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VSCode and the splLanguageServer service."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "postinstall": "cd server && npm install && cd ../client && npm install && cd ../parser && npm install && cd ..",
+    "compile": "tsc -p client/tsconfig.json && tsc -p server/tsconfig.json",
+    "compile:client": "tsc -p client/tsconfig.json",
+    "watch:client": "tsc -w -p client/tsconfig.json",
+    "compile:server": "tsc -p server/tsconfig.json",
+    "watch:server": "tsc -w -p server/tsconfig.json"
+  }
 }

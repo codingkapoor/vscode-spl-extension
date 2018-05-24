@@ -8,70 +8,9 @@
   "engines": {
     "vscode": "^1.23.0"
   },
-  "activationEvents": [
-    "onLanguage:spl"
-  ],
-  "main": "./out/extension",
-  "contributes": {
-    "languages": [
-      {
-        "id": "spl",
-        "aliases": [
-          "Spl",
-          "spl"
-        ],
-        "extensions": [
-          ".spl",
-          ".SPL"
-        ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "spl",
-        "scopeName": "source.spl",
-        "path": "./syntaxes/spl.tmLanguage.json"
-      }
-    ],
-    "snippets": [
-      {
-        "language": "spl",
-        "path": "./snippets/spl.json"
-      }
-    ],
-    "themes": [
-      {
-        "label": "Spl Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/spl.json"
-      }
-    ],
-    "configuration": {
-      "type": "object",
-      "title": "Client configuration",
-      "properties": {
-        "splLanguageServer.maxNumberOfProblems": {
-          "type": "number",
-          "default": 100,
-          "description": "Controls the maximum number of problems produced by the server."
-        },
-        "splLanguageServer.trace.server": {
-          "type": "string",
-          "enum": [
-            "off",
-            "messages",
-            "verbose"
-          ],
-          "default": "off",
-          "description": "Traces the communication between VSCode and the splLanguageServer service."
-        }
-      }
-    }
-  },
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
-    "compile": "tsc -watch -p ./",
+    "compile": "tsc -p ./",
     "watch": "tsc -w -p ./",
     "update-vscode": "node ./node_modules/vscode/bin/install",
     "postinstall": "node ./node_modules/vscode/bin/install"

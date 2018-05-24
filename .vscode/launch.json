@@ -1,6 +1,5 @@
 {
 	"version": "0.2.0",
-	// List of configurations. Add new configurations or edit existing ones.
 	"configurations": [
 		{
 			"name": "Launch Client",
@@ -8,7 +7,7 @@
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceRoot}/client"
+				"--extensionDevelopmentPath=${workspaceRoot}"
 			],
 			"stopOnEntry": false,
 			"sourceMaps": true,
@@ -25,7 +24,7 @@
 			"protocol": "inspector",
 			"sourceMaps": true,
 			"outFiles": [
-				"${workspaceRoot}/client/server/**/*.js"
+				"${workspaceRoot}/server/out/**/*.js"
 			],
 			"preLaunchTask": "watch:server"
 		}

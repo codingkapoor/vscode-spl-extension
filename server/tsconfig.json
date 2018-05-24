@@ -2,13 +2,9 @@
 	"compilerOptions": {
 		"target": "es6",
 		"module": "commonjs",
-		"moduleResolution": "node",
-		"sourceMap": true,
+		"outDir": "./out",
 		"lib" : [ "es6" ],
-		"outDir": "../client/server",
-		"allowJs": true,
-		"allowSyntheticDefaultImports": true,
-		"experimentalDecorators": true
+		"sourceMap": true
 	},
 	"exclude": [
 		"node_modules"

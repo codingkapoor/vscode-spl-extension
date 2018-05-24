@@ -1,2 +1,2 @@
-# vscode-spl-language-server
-VSCode language server protocol implementation for Spl
+# vscode-spl-extension
+VSCode extension implementation for Spl language.

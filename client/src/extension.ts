@@ -10,7 +10,7 @@ RequestType, TextDocumentIdentifier, ResponseError, InitializeError, State as Cl
 export function activate(context: ExtensionContext) {
 
 	// The server is implemented in another project and outputted there
-	let serverModule = context.asAbsolutePath(path.join('server', 'server.js'));
+	let serverModule = context.asAbsolutePath(path.join('server/out', 'server.js'));
 	// The debug options for the server
 	let debugOptions = { execArgv: ["--nolazy", "--inspect=6009"] };
 	

@@ -16,9 +16,8 @@
     "typescript": "2.8.3"
   },
   "scripts": {
-    "preinstall": "rm -rf node_module/parser",
-    "installServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json",
-    "compile": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
-    "watch": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc --watch -p ."
+    "preinstall": "rm -rf node_modules/parser",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./"
   }
 }

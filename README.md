@@ -34,6 +34,7 @@ code --install-extension vscode-spl-extension-${semver}.vsix
 - Show Hovers
 - Code Formatting
 - Goto Definition
+- Key Bindings
 
 ## VSCode Debug Configurations
 - Launch Client

@@ -6,6 +6,11 @@
   "license": "MIT",
   "publisher": "codingkapoor",
   "version": "1.0.0",
+  "icon": "images/spl.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codingkapoor/vscode-spl-extension.git"
+  },
   "engines": {
     "vscode": "^1.23.0"
   },

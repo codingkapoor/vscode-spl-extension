@@ -114,14 +114,9 @@ function validateSplDocument(textDocument: TextDocument): void {
 
 // This handler provides the initial list of the completion items.
 connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-    var res = [], obj = spl.vocabulary;
-    for (var key in obj) {
-        var value = obj[key];
-        res.push({
-            label: value.label,
-            kind: value.kind,
-            data: value.data
-        });
+    var res = [], arr = spl.vocabulary;
+    for (var i in arr) {
+        res.push(arr[i]);
     }
 
     return res;
@@ -129,50 +124,5 @@ connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): Comp
 
 // This handler resolve additional information for the item selected in the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
-    if (item.data === spl.vocabulary.NAMESPACE.data) {
-        item.detail = spl.vocabulary.NAMESPACE.details,
-            item.documentation = spl.vocabulary.NAMESPACE.documentation;
-    }
-    else if (item.data === spl.vocabulary.TABLE.data) {
-        item.detail = spl.vocabulary.TABLE.details,
-            item.documentation = spl.vocabulary.TABLE.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLUMN.data) {
-        item.detail = spl.vocabulary.COLUMN.details,
-            item.documentation = spl.vocabulary.COLUMN.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLCOPY.data) {
-        item.detail = spl.vocabulary.COLCOPY.details,
-            item.documentation = spl.vocabulary.COLCOPY.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLSPLIT.data) {
-        item.detail = spl.vocabulary.COLSPLIT.details,
-            item.documentation = spl.vocabulary.COLSPLIT.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLCALC.data) {
-        item.detail = spl.vocabulary.COLCALC.details,
-            item.documentation = spl.vocabulary.COLCALC.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLREP.data) {
-        item.detail = spl.vocabulary.COLREP.details,
-            item.documentation = spl.vocabulary.COLREP.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLMAP.data) {
-        item.detail = spl.vocabulary.COLMAP.details,
-            item.documentation = spl.vocabulary.COLMAP.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLJOIN.data) {
-        item.detail = spl.vocabulary.COLJOIN.details,
-            item.documentation = spl.vocabulary.COLJOIN.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLDROP.data) {
-        item.detail = spl.vocabulary.COLDROP.details,
-            item.documentation = spl.vocabulary.COLDROP.documentation;
-    }
-    else if (item.data === spl.vocabulary.COLFILL.data) {
-        item.detail = spl.vocabulary.COLFILL.details,
-            item.documentation = spl.vocabulary.COLFILL.documentation;
-	}
-	
     return item;
 });

@@ -1,18 +1,18 @@
 import { CompletionItemKind } from 'vscode-languageserver';
 
-exports.vocabulary = {
-    DEFINE: {
+exports.vocabulary = [
+    {
         label: "DEFINE",
         kind: CompletionItemKind.Keyword,
         data: "DEFINE",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    NAMESPACE: {
+    {
         label: "NAMESPACE",
         kind: CompletionItemKind.Keyword,
         data: "NAMESPACE",
-        details: "NAMESPACE details",
+        detail: "NAMESPACE details",
         documentation: `Definition:
 A namespace is used to divide the log into smaller logical chunks. It defines the structure (or sections) for the parser. Use the BEGINS WITH, ENDS WITH and FILEPATTERN constructs to define the boundary of a namespace.
 
@@ -58,11 +58,11 @@ Rules:
 - TYPE by default value is ‘SECTION’ if it is not mentioned.
 `
     },
-    TABLE: {
+    {
         label: "TABLE",
         kind: CompletionItemKind.Keyword,
         data: "TABLE",
-        details: "TABLE details",
+        detail: "TABLE details",
         documentation: `Definition:
 Tables are declared within a namespace to populate its row and column data. It contains the parser ICON and all column definitions.
 
@@ -100,11 +100,11 @@ Rules:
 - All the parsed data can be manipulated using the COLUMN function.
 `
     },
-    COLUMN: {
+    {
         label: "COLUMN",
         kind: CompletionItemKind.Keyword,
         data: "COLUMN",
-        details: "COLUMN details",
+        detail: "COLUMN details",
         documentation: `Definition:
 Describes every attribute that is used to define a column in a table.
 
@@ -120,158 +120,158 @@ Best Practices:
 - Columns that are dropped will not be created in Cassandra.
 `
     },
-    DESCRIPTION: {
+    {
         label: "DESCRIPTION",
         kind: CompletionItemKind.Property,
         data: "DESCRIPTION",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    REF: {
+    {
         label: "REF",
         kind: CompletionItemKind.Property,
         data: "REF",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TYPE: {
+    {
         label: "TYPE",
         kind: CompletionItemKind.Property,
         data: "TYPE",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    LOCK: {
+    {
         label: "LOCK",
         kind: CompletionItemKind.Property,
         data: "LOCK",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    SOLR: {
+    {
         label: "SOLR",
         kind: CompletionItemKind.Property,
         data: "SOLR",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    BUNDLETYPE: {
+    {
         label: "BUNDLETYPE",
         kind: CompletionItemKind.Property,
         data: "BUNDLETYPE",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    BEGINS_WITH: {
+    {
         label: "BEGINS WITH",
         kind: CompletionItemKind.Property,
         data: "BEGINS_WITH",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    ENDS_WITH: {
+    {
         label: "ENDS WITH",
         kind: CompletionItemKind.Property,
         data: "ENDS_WITH",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    FILEPATTERN: {
+    {
         label: "FILEPATTERN",
         kind: CompletionItemKind.Property,
         data: "FILEPATTERN",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    CONTEXT: {
+    {
         label: "CONTEXT",
         kind: CompletionItemKind.Property,
         data: "CONTEXT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    AS: {
+    {
         label: "AS",
         kind: CompletionItemKind.Keyword,
         data: "AS",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    ICON: {
+    {
         label: "ICON",
         kind: CompletionItemKind.Property,
         data: "ICON",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    LINEGRAB: {
+    {
         label: "LINEGRAB",
         kind: CompletionItemKind.Property,
         data: "LINEGRAB",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    MULTILINE: {
+    {
         label: "MULTILINE",
         kind: CompletionItemKind.Property,
         data: "MULTILINE",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    MULTILINE_NOT: {
+    {
         label: "MULTILINE NOT",
         kind: CompletionItemKind.Property,
         data: "MULTILINE_NOT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    SKIP: {
+    {
         label: "SKIP",
         kind: CompletionItemKind.Property,
         data: "SKIP",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    WITH_SOLRMAPPING: {
+    {
         label: "WITH SOLRMAPPING",
         kind: CompletionItemKind.Property,
         data: "WITH_SOLRMAPPING",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    COLCASE: {
+    {
         label: "COLCASE",
         kind: CompletionItemKind.Keyword,
         data: "COLCASE",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    COLWHEN: {
+    {
         label: "COLWHEN",
         kind: CompletionItemKind.Keyword,
         data: "COLWHEN",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    COLELSE: {
+    {
         label: "COLELSE",
         kind: CompletionItemKind.Keyword,
         data: "COLELSE",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    COLEND: {
+    {
         label: "COLEND",
         kind: CompletionItemKind.Keyword,
         data: "COLEND",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    COLCOPY: {
+    {
         label: "COLCOPY",
         kind: CompletionItemKind.Function,
         data: "COLCOPY",
-        details: "COLCOPY details",
+        detail: "COLCOPY details",
         documentation: `Definition:
 Copy source column value or a literal value to one or more destination column(s).
 
@@ -282,11 +282,11 @@ Note:
 - Second parameter must be a column.
 `
     },
-    COLSPLIT: {
+    {
         label: "COLSPLIT",
         kind: CompletionItemKind.Function,
         data: "COLSPLIT",
-        details: "COLSPLIT details",
+        detail: "COLSPLIT details",
         documentation: `Definition:
 Splits a column value into more than one pices specified by the back reference of a regular expression and assigns them to respective destination column.
 
@@ -297,11 +297,11 @@ Note:
 - Number of back reference in regex should be equal to number of destination column.
 `
     },
-    COLCALC: {
+    {
         label: "COLCALC",
         kind: CompletionItemKind.Function,
         data: "COLCALC",
-        details: "COLCALC details",
+        detail: "COLCALC details",
         documentation: `Definition:
 Used to perform various transformations and assigns the result to the target/result column.
 
@@ -318,11 +318,11 @@ INT, MINUS, PLUS, TIMES, DIVIDEBY, RANDINT, XTOPOWY, HEX2DEC, HEX2BIN, BIN2HEX
 MD5, LENGTH, CONCAT, UC, LC, ZEROPAD
 `
     },
-    COLREP: {
+    {
         label: "COLREP",
         kind: CompletionItemKind.Function,
         data: "COLREP",
-        details: "COLREP details",
+        detail: "COLREP details",
         documentation: `Definition:
 Used to search a pattern and replace with a string on a column value.
 
@@ -330,11 +330,11 @@ Usage:
 	COLREP(/@regex/, ’@literal-value’, @column)
 `
     },
-    COLMAP: {
+    {
         label: "COLMAP",
         kind: CompletionItemKind.Function,
         data: "COLMAP",
-        details: "COLMAP details",
+        detail: "COLMAP details",
         documentation: `Definition:
 Conditionally assigns new value to the destination column. It works like if and else-if and else condition.
 
@@ -345,11 +345,11 @@ Explaination:
 @destination-column gets value based on @test-column value i.e., if @test-column = @regex then column1|literal1 or column2|literal2
 `
     },
-    COLJOIN: {
+    {
         label: "COLJOIN",
         kind: CompletionItemKind.Function,
         data: "COLJOIN",
-        details: "COLJOIN details",
+        detail: "COLJOIN details",
         documentation: `Definition:
 Used to join two or more columns or literals together and putting the value in the resultant column.
 
@@ -357,11 +357,11 @@ Usage:
     COLJOIN(@destination-col,@column1|’@literal-value’,@column2|‘@literal-value’[,@columnN]*)
 `
     },
-    COLDROP: {
+    {
         label: "COLDROP",
         kind: CompletionItemKind.Function,
         data: "COLDROP",
-        details: "COLDROP details",
+        detail: "COLDROP details",
         documentation: `Definition:
 Used to drop any temporary column or columns in the table.
 
@@ -369,11 +369,11 @@ Usage:
 COLDROP(@column1[,@columnN]*)
 `
     },
-    COLFILL: {
+    {
         label: "COLFILL",
         kind: CompletionItemKind.Function,
         data: "COLFILL",
-        details: "COLFILL details",
+        detail: "COLFILL details",
         documentation: `Definition:
 Fills an empty column with the value from the previous row.
 
@@ -381,333 +381,333 @@ Usage:
     COLFILL(@column1[,@columnN]*)
 `
     },
-    ADD_CONTEXT: {
+    {
         label: "ADD_CONTEXT",
         kind: CompletionItemKind.Function,
         data: "ADD_CONTEXT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    CONSTRAIN: {
+    {
         label: "CONSTRAIN",
         kind: CompletionItemKind.Function,
         data: "CONSTRAIN",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    UNPARSED: {
+    {
         label: "UNPARSED",
         kind: CompletionItemKind.Enum,
         data: "UNPARSED",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TRASH: {
+    {
         label: "TRASH",
         kind: CompletionItemKind.Enum,
         data: "TRASH",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    EVENT: {
+    {
         label: "EVENT",
         kind: CompletionItemKind.Enum,
         data: "EVENT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    STAT: {
+    {
         label: "STAT",
         kind: CompletionItemKind.Enum,
         data: "STAT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    SESSION: {
+    {
         label: "SESSION",
         kind: CompletionItemKind.Enum,
         data: "SESSION",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    LIST_BASIC: {
+    {
         label: "list_basic",
         kind: CompletionItemKind.Enum,
         data: "LIST_BASIC",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    ALIGNED_BASIC: {
+    {
         label: "aligned_basic",
         kind: CompletionItemKind.Enum,
         data: "ALIGNED_BASIC",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    NVPAIR_BASIC: {
+    {
         label: "nvpair_basic",
         kind: CompletionItemKind.Enum,
         data: "NVPAIR_BASIC",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    XML_BASIC: {
+    {
         label: "xml_basic",
         kind: CompletionItemKind.Enum,
         data: "XML_BASIC",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    JSON: {
+    {
         label: "json",
         kind: CompletionItemKind.Enum,
         data: "JSON",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    CSV_NOHEADER: {
+    {
         label: "csv_noheader",
         kind: CompletionItemKind.Enum,
         data: "CSV_NOHEADER",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    CSV_WITHHEADER: {
+    {
         label: "csv_withheader",
         kind: CompletionItemKind.Enum,
         data: "CSV_WITHHEADER",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    ADJYEAR: {
+    {
         label: "ADJYEAR",
         kind: CompletionItemKind.Enum,
         data: "ADJYEAR",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME2QTR: {
+    {
         label: "TIME2QTR",
         kind: CompletionItemKind.Enum,
         data: "TIME2QTR",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME2MONTH: {
+    {
         label: "TIME2MONTH",
         kind: CompletionItemKind.Enum,
         data: "TIME2MONTH",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME2WEEK: {
+    {
         label: "TIME2WEEK",
         kind: CompletionItemKind.Enum,
         data: "TIME2WEEK",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME2DAY: {
+    {
         label: "TIME2DAY",
         kind: CompletionItemKind.Enum,
         data: "TIME2DAY",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME2HOUR: {
+    {
         label: "TIME2HOUR",
         kind: CompletionItemKind.Enum,
         data: "TIME2HOUR",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME24HOUR: {
+    {
         label: "TIME24HOUR",
         kind: CompletionItemKind.Enum,
         data: "TIME24HOUR",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME210MIN: {
+    {
         label: "TIME210MIN",
         kind: CompletionItemKind.Enum,
         data: "TIME210MIN",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME2MIN: {
+    {
         label: "TIME2MIN",
         kind: CompletionItemKind.Enum,
         data: "TIME2MIN",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIME230DAY: {
+    {
         label: "TIME230DAY",
         kind: CompletionItemKind.Enum,
         data: "TIME230DAY",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    SDF2EPOCH: {
+    {
         label: "SDF2EPOCH",
         kind: CompletionItemKind.Enum,
         data: "SDF2EPOCH",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    EPOCH2SDF: {
+    {
         label: "EPOCH2SDF",
         kind: CompletionItemKind.Enum,
         data: "EPOCH2SDF",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    GMTIME: {
+    {
         label: "GMTIME",
         kind: CompletionItemKind.Enum,
         data: "GMTIME",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    LOCALTIME: {
+    {
         label: "LOCALTIME",
         kind: CompletionItemKind.Enum,
         data: "LOCALTIME",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    DATEDIFF: {
+    {
         label: "DATEDIFF",
         kind: CompletionItemKind.Enum,
         data: "DATEDIFF",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    INT: {
+    {
         label: "INT",
         kind: CompletionItemKind.Enum,
         data: "INT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    MINUS: {
+    {
         label: "MINUS",
         kind: CompletionItemKind.Enum,
         data: "MINUS",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    PLUS: {
+    {
         label: "PLUS",
         kind: CompletionItemKind.Enum,
         data: "PLUS",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    TIMES: {
+    {
         label: "TIMES",
         kind: CompletionItemKind.Enum,
         data: "TIMES",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    DIVIDEBY: {
+    {
         label: "DIVIDEBY",
         kind: CompletionItemKind.Enum,
         data: "DIVIDEBY",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    RANDINT: {
+    {
         label: "RANDINT",
         kind: CompletionItemKind.Enum,
         data: "RANDINT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    XTOPOWY: {
+    {
         label: "XTOPOWY",
         kind: CompletionItemKind.Enum,
         data: "XTOPOWY",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    HEX2DEC: {
+    {
         label: "HEX2DEC",
         kind: CompletionItemKind.Enum,
         data: "HEX2DEC",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    HEX2BIN: {
+    {
         label: "HEX2BIN",
         kind: CompletionItemKind.Enum,
         data: "HEX2BIN",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    BIN2HEX: {
+    {
         label: "BIN2HEX",
         kind: CompletionItemKind.Enum,
         data: "BIN2HEX",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    MD5: {
+    {
         label: "MD5",
         kind: CompletionItemKind.Enum,
         data: "MD5",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    LENGTH: {
+    {
         label: "LENGTH",
         kind: CompletionItemKind.Enum,
         data: "LENGTH",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    CONCAT: {
+    {
         label: "CONCAT",
         kind: CompletionItemKind.Enum,
         data: "CONCAT",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    UC: {
+    {
         label: "UC",
         kind: CompletionItemKind.Enum,
         data: "UC",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    LC: {
+    {
         label: "LC",
         kind: CompletionItemKind.Enum,
         data: "LC",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    ZEROPAD: {
+    {
         label: "ZEROPAD",
         kind: CompletionItemKind.Enum,
         data: "ZEROPAD",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    STR2TIME: {
+    {
         label: "STR2TIME",
         kind: CompletionItemKind.Enum,
         data: "STR2TIME",
-        details: "",
+        detail: "",
         documentation: ""
     },
-    STR2SUM: {
+    {
         label: "STR2SUM",
         kind: CompletionItemKind.Enum,
         data: "STR2SUM",
-        details: "",
+        detail: "",
         documentation: ""
     }
-};
+];

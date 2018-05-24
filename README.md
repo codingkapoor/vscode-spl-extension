@@ -1,16 +1,6 @@
 # vscode-spl-extension
 VSCode extension implementation for Spl language.
 
-## Features
-- Language Support
-- Color Scheme
-- Smart Bracketing
-- Snippets
-- Diagnostics (Syntactic & Semantic Errors)
-- Auto Completion
-- Documentation
-- Code Folding
-
 ## Dependencies
 ```
 npm install
@@ -31,6 +21,20 @@ vsce package
 code --install-extension vscode-spl-extension-${semver}.vsix
 ```
 
+## Features
+- Syntax Highlighting
+- Smart Bracket Matching
+- Source Code Snippets
+- Diagnostics (Syntactic & Semantic Errors)
+- Auto Completion
+- Documentation
+- Code Folding
+
 ## VSCode Debug Configurations
 - Launch Client
 - Attach To Server
+
+## Roadmap
+- Show Hovers
+- Code Formatting
+- Goto Definition

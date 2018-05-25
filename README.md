@@ -35,6 +35,7 @@ code --install-extension vscode-spl-extension-${semver}.vsix
 - Code Formatting
 - Goto Definition
 - Key Bindings
+- Linting
 
 ## VSCode Debug Configurations
 - Launch Client
